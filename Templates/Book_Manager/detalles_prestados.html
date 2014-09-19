@@ -1,0 +1,17 @@
+{% extends "base.html"%}
+{% block title%}Detalles{% endblock %}
+{% block header%}{{proc.duenno_libro.libro.titulo}}{% endblock %}
+{% block maincontent %}
+<p>
+	Dueño Temporal:{{proc.pers_solic}}
+</p>
+<p>
+	Reputación del Dueño Temporal:{{proc.pers_solic.reputacion}} puntos
+</p>
+<p>
+	Fecha de inicio del Préstamo:{{proc.fecha_inic_prest}}
+</p>
+<p>
+	Fecha de conclusión del Préstamo:{{proc.fecha_fin_prest}}
+</p>
+{% endblock %}

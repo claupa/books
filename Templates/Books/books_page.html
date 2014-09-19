@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Libros{% endblock %}
+{% block header %}{{book.titulo}}{% endblock %}
+{% block maincontent %}
+{% ifequal text '' %}
+<h4>Autor:</h4>
+<p>
+	{{book.autor}}
+</p>
+<h4>Número de edición:</h4>
+<p>
+	{{book.numero_de_edicion}}
+</p>
+<h4>Año de publicación:</h4>
+<p>
+	{{book.anno_de_publicacion}}
+</p>
+<h4>Resumen de los usuarios:</h4>
+{% for i in todo %}
+<p>
+	{{forloop.counter}}-{{i.resumen}}
+	<br>por {{i.duenno.username}}</br>
+</p>
+
+{% endfor %}
+<span class="art-button-wrapper">
+	<span class="art-button-l"> </span>
+	<span class="art-button-r"> </span>
+	<a class="art-button" href="/request/{{book.id}}">Solicitar libro</a>
+</span>
+{% else %}
+<p>
+	El libro que busca no se ha añadido aún.
+</p>
+{% endifequal %}
+{% endblock %}

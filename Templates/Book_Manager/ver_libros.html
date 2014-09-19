@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Libros{% endblock %}
+{% block header %}Libros{% endblock %}
+{% block maincontent %}
+
+{% ifequal count 0 %}
+<p>
+	No tiene ningún libro.
+</p>
+{% else %}
+{% for i in titulos %}
+<p>
+	{{forloop.counter}}-{{i.titulo}}, por {{i.autor}}&nbsp;&nbsp;&nbsp;
+	<a href='/editar_libro/{{i.id}}/' title="editar_libro"> Editar </a> / 
+	<a href='/eliminar_libro/{{i.id}}/' title="eliminar_libro"> Eliminar </a>
+</p> 
+{% endfor %}
+{% endifequal%}
+
+{% endblock %}

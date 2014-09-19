@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Libros{% endblock %}
+
+{% block header %}Libros Prestados{% endblock %}
+
+{% block maincontent %}
+{% ifequal count 0 %}
+<p>
+	No ha prestado ningún libro.
+</p>
+{% else %}
+{% for i in prestados %}
+<p>
+	{{forloop.counter}}-{{i.duenno_libro.libro.titulo}}
+	<a href='/detalles_prestados/{{i.id}}/'> Detalles</a>
+</p>
+{% endfor %}
+{% endifequal%}
+{% endblock %}

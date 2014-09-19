@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Entrar{% endblock %}
+{% block header %}Entrar{% endblock %}
+{% block maincontent %}
+<div class="art-sheet">
+	<form method="post" action=".">
+		<p>
+			Nombre de usuario:
+		</p>
+		<label for="id_username">
+		</label>{{ form.username }}
+		<p>
+			Contraseña:
+		</p>
+		<label for="id_password">
+		</label>{{ form.password }}
+		<p>
+		</p>
+		<input type="submit" value="Entrar" />
+		<input type="hidden" name="next" value="/" />
+	</form>
+</div>
+{% endblock %}

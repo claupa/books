@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Libros{% endblock %}
+{% block header %}{{book.titulo}}{% endblock %}
+{% block maincontent %}
+<h4>De:</h4>
+<p>
+	{{de}}
+</p>
+<h4>Asunto:</h4>
+<p>
+	{{asunto}}
+</p>
+<h4>Mensaje:</h4>
+<p>
+	{{cuerpo}}
+</p>
+<span class="art-button-wrapper">
+	<span class="art-button-l"> </span>
+	<span class="art-button-r"> </span>
+	<a class="art-button" href="/accept/{{id}}/">Aceptar</a>
+</span>
+{% endblock %}

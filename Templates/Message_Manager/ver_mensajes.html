@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Libros{% endblock %}
+{% block header %}Solicitudes{% endblock %}
+{% block maincontent %} 
+   {% ifequal text '' %}	
+	{% for a in solicitudes %}
+    <p>{{forloop.counter}}-{{a.pers_solic.username}} está pidiendo prestado {{a.duenno_libro.libro.titulo}}. Su correo es {{a.pers_solic.email}} por si desea ponerse en contacto.</p>
+    <a href='/ignorar/{{a.id}}'>Ignorar</a>
+    {% endfor %}  
+    {% else %}  
+    <p>{{text}}</p>
+ {% endifequal %}
+{% endblock %}

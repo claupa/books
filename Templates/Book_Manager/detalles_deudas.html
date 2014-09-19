@@ -1,0 +1,21 @@
+{% extends "base.html"%}
+{% block title%}Detalles{% endblock %}
+{% block maincontent %}
+<h4>Libro:</h4>
+<p>
+	{{proc.duenno_libro.libro.titulo}}
+	<a href="/book/{{proc.duenno_libro.libro.id}}"> Ver </a>
+</p>
+<h4>Dueño del Libro:</h4>
+<p>
+	{{proc.duenno_libro.duenno}}
+</p>
+<h4>Fecha de inicio del Préstamo:</h4>
+<p>
+	{{proc.fecha_inic_prest}}
+</p>
+<h4>Fecha de conclusión del Préstamo:</h4>
+<p>
+	{{proc.fecha_fin_prest}}
+</p>
+{% endblock %}

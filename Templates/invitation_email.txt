@@ -1,0 +1,5 @@
+Hola {{ name }},
+{{ sender }} lo ha invitado al sitio de los Libros,
+un sitio donde puede compartir libros con sus amigos.
+Para aceptar esta invitación, haga click en el hypervínculo de abajo:
+{{ link }}

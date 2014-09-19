@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Registo de usuario{% endblock %}
+{% block header %}Registro de Usuario{% endblock %}
+{% block maincontent %}
+	<form method="post" action=".">
+		{{ form.as_p }}
+		<input type="submit" value="Siguiente" />
+	</form>
+{% endblock %}

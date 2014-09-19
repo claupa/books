@@ -1,0 +1,9 @@
+﻿{% extends "base.html" %}
+{% block title %}Pagina Principal{% endblock %}
+{% block header %}Bienvenidos al sitio de los Libros{% endblock %}
+{% block maincontent %}
+    <p>Libros Añadidos Recientemente</p>
+    {% for a in list_libros %}
+    <p>{{forloop.counter}}-<a href="/book/{{a.id}}"> {{a}} </a></p>
+    {% endfor %}    
+{% endblock %}

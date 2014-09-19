@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Búsqueda{% endblock %}
+{% block maincontent %}
+{% ifequal list_libros.count 0 %}
+<p>No se encontró ningún libro.</p>
+{% else %}
+    <p>Resultados de la Búsqueda:</p>
+    {% for a in list_libros %}
+    	<p>{{forloop.counter}}-<a href="/book/{{a.id}}">{{a}}</a></p>
+    {% endfor %} 
+{% endifequal %}
+{% endblock %}

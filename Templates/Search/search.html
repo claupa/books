@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Búsqueda{% endblock %}
+{% block maincontent %}
+{% if user.is_authenticated %}
+	<form method="post" action=".">
+		{{ form.as_p }}
+		<input type="submit" value="Buscar" />
+	</form>
+{% endif %}
+{% endblock %}

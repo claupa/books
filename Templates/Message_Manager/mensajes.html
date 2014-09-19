@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Libros{% endblock %}
+{% block maincontent %}
+<h4>Solicitudes:</h4>
+{% for a in solicitudes %}
+<p>
+	{{forloop.counter}}-{{a.pers_solic.username}} está pidiendo prestado {{a.duenno_libro.libro.titulo}}. Su correo es {{a.pers_solic.email}} por si desea ponerse en contacto.
+</p>
+<a href='/ignorar/{{a.id}}'>Ignorar</a>
+{% endfor %}
+<h4>Préstamos:</h4>
+{% for i in prestamos %}
+<p>
+	{{forloop.counter}}- De {{i.para_quien.duenno}} sobre el libro {{i.para_quien.libro}}.&nbsp;&nbsp;
+	<a href='/detalles_mensaje/{{i.id}}/'>Detalles</a>
+</p>
+
+{% endfor %}
+<h4>Devoluciones:</h4>
+{% for i in devoluciones %}
+<p>
+	{{forloop.counter}}- De {{i.de_quien}} sobre el libro {{i.para_quien.libro}}.&nbsp;&nbsp;
+	<a href='/detalles_mensaje/{{i.id}}/'>Detalles</a>
+</p>
+
+{% endfor %}
+
+{% endblock %}

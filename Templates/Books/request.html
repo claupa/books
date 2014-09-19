@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Libros{% endblock %}
+{% block header %}
+{% ifequal text '' %}
+Dueños de {{book.titulo}}
+    {% else %}
+{% ifequal text '1' %}
+	Solicitud Realizada
+	{% else %}
+{% endifequal %}
+{% endifequal %}
+{% endblock %}
+{% block maincontent %} 
+{% ifequal text '' %}
+	<p>Haga click sobre alguno de los usuarios para hacer la solicitud:</p>
+	{% for a in duenno %}
+    <p>{{forloop.counter}}-<a href="/solicitud_duenno/{{a.id}}">{{a.duenno.username}}</a></p>
+    {% endfor %}
+    {% else %}
+    {% ifequal text '1' %}
+		<p>Su solicitud ha sido enviada. Espere a ser contactado por el due&ntilde;o del libro via email.</p>
+		{% else %}    
+    		<p>{{text}}</p>
+	{% endifequal %}
+ {% endifequal %}
+{% endblock %}

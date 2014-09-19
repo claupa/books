@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %} Información Personal{% endblock %}
+{% block header %} Información Personal {% endblock %}
+{% block maincontent %}
+	<form method="post" action=".">
+			{{ form.as_p }}
+			<input type="submit" value="Aplicar cambios" />
+	</form>
+
+{% endblock %}

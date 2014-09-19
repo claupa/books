@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Mandar Invitacion{% endblock %}
+{% block header %}Mandar Invitacion{% endblock %}
+{% block maincontent %}
+{% if user.is_authenticated %}
+	<form method="post" action=".">
+		{{ form.as_p }}
+		<input type="submit" value="Mandar" />
+	</form>
+{% else %}
+	<p>No tiene suficientes permisos para realizar esta actividad.</p>
+{% endif %}
+{% endblock %}

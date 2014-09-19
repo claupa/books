@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Invitar un Amigo{% endblock %}
+
+{% block maincontent %}
+<p>
+	Introduzca el nombre y el correo del amigo que desea invitar,
+	y haga click en Mandar para invitar a su amigo a que se una al sitio:
+</p>
+<form method="post" action=".">
+	{{ form.as_p }}
+	<input type="submit" value="Mandar" />
+</form>
+{% endblock %}

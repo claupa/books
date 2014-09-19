@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US" xml:lang="en">
+	<head>		
+		<title>{% block title %}{% endblock %}</title>
+		<meta content="text/html; charset=us-ascii" http-equiv="Content-Type" />
+		<meta content="es" http-equiv="Content-Language" />
+		<link rel="stylesheet" href="/site_media/style.css" type="text/css" media="screen" />		
+	</head>
+	<body>
+		<div id="art-main">
+			<div class="art-sheet">
+				<div class="art-sheet-tl"></div>
+				<div class="art-sheet-tr"></div>
+				<div class="art-sheet-bl"></div>
+				<div class="art-sheet-br"></div>
+				<div class="art-sheet-tc"></div>
+				<div class="art-sheet-bc"></div>
+				<div class="art-sheet-cl"></div>
+				<div class="art-sheet-cr"></div>
+				<div class="art-sheet-cc"></div>
+				<div class="art-sheet-body">
+					<div class="art-nav">
+						<div class="l"></div>
+						<div class="r"></div>						
+						<div class="art-foote-text" >
+								{% if user.is_authenticated %}
+									<p><a href="/logout/">Salir</a> | <a href="/change_password/">Cambiar Contraseña</a> | Hola, {{user.username}}</p>								
+								{% else %}
+									<p><a href="/login/">Entrar</a> | Hola, desconocido</p>
+								{% endif %}
+							</div>
+					</div>
+					<div class="art-header">
+						<div class="art-header-center">	<div class="art-header-png" ></div></div>
+						<div class="art-logo">
+							<h1 id="name-text" class="art-logo-name">Libros</h1>
+							<h2 id="slogan-text" class="art-logo-text">La mejor forma de compartir...</h2>
+						</div>
+					</div>
+					
+					<div class="art-content-layout">
+						<div class="art-content-layout-row">
+							{% if user.is_authenticated %} 
+							<div class="art-layout-cell art-sidebar1">
+								<div class="art-block">
+									<div class="art-block-body">
+										<div class="art-blockcontent">
+											<div class="art-blockcontent-body">
+												{% block leftblockfirst%}{% endblock %}
+												<div class="cleared"></div>
+											</div>
+										</div>
+										<div class="cleared"></div>
+									</div>
+								</div>
+								
+								<div class="art-block">
+									<div class="art-block-body">
+										<div class="art-blockcontent">
+											<div class="art-blockcontent-body">
+												<div>
+													<ul>
+														<li><a href="/add_book/" title="Add_Book">Añadir Libro</a></li>
+														<li><a href="/buscar/" title="Buscar">Buscar Libro</a></li>													
+													</ul>
+												</div>
+											</div>
+										</div>										
+									</div>
+								</div>
+								
+								<div class="art-block">
+									<div class="art-block-body">
+										<div class="art-blockcontent">
+											<div class="art-blockcontent-body">
+												<div>
+													<ul>
+													{% if user.is_authenticated %}
+														<li><a href="/deudas/" title="Deudas">Libros que debo</a></li>
+														<li><a href="/libros_prestados/" title="Prestados">Libros prestados</a></li>
+														<li><a href="/crear_mensaje/" title="Enviar_Mensaje">Crear Mensaje</a></li>	
+														<li><a href="/mensajes/" title="Mensajes">Mis Mensajes</a></li>																											
+													{% endif %}	
+													</ul>
+												</div>
+												<div class="cleared"></div>
+											</div>
+										</div>
+										<div class="cleared"></div>
+									</div>
+								</div>
+								<div class="art-block">
+									<div class="art-block-body">
+										<div class="art-blockcontent">
+											<div class="art-blockcontent-body">
+												<div>
+													<ul>
+														{% if user.is_authenticated %}
+															<li><a href="/send_inv/" title="sending_inv">Enviar Invitación</a></li>
+															<li><a href="/user/{{user.username}}" title="user_page">Datos personales</a></li>
+															<li><a href="/libros/{{user.username}}" title="ver_libros">Ver libros</a></li>
+														{% endif %}
+													</ul>
+												</div>
+												<div class="cleared"></div>
+											</div>
+										</div>
+										<div class="cleared"></div>
+									</div>
+								</div>
+								<div class="cleared"></div>
+							</div>
+							{% endif %}
+							<div class="art-layout-cell art-content">
+								<div class="art-post">
+									<div class="art-post-body">
+										<div class="art-post-inner art-article">
+											<h2 class="art-postheader">{% block header %}{% endblock %}</h2>
+											<div class="art-postcontent">{%block maincontent%}{%endblock%}</div>
+											<div class="cleared"></div>
+										</div>
+										<div class="cleared"></div>
+									</div>
+								</div>
+								<div class="cleared"></div>
+							</div>
+						</div>
+					</div>					
+					<div class="art-footer">
+						<div class="art-footer-t"></div>
+						<div class="art-footer-l"></div>
+						<div class="art-footer-b"></div>
+						<div class="art-footer-r"></div>
+						<div class="art-footer-body">
+							<div class="art-footer-text">
+								{% if user.is_authenticated %}
+									<p><a href="/mensajes/">Mensajes</a> | <a href="/latest_books/">Libros Nuevos</a></p>								
+								{% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>			
+		</div>
+	</body>
+</html>
